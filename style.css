@@ -1,0 +1,161 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background: linear-gradient(to top, #000 20%, #666 50%, #a0a0a0 80%);
+    font-family: 'Georama', sans-serif;
+    font-weight: 100;
+}
+
+.outer-wrapper {
+    max-width: 1920px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.wrapper {
+    max-width: 1440px;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 20px 40px;
+    row-gap: 20px;
+}
+
+/* SLIDES*/
+
+.slides {
+    display: flex;
+    width: 500%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.slide {
+    width: 20%;
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    transition: all .6s ease;
+}
+
+.slide img {
+    width: 100%;
+}
+
+/* MENUE*/ 
+
+.text {
+    grid-row-start: 2;
+}
+
+.commentary {
+    display: none;
+    margin: 0;
+    color: #fff;
+    font-size: 3rem;
+}
+
+
+@keyframes comm {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+.dots {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* DOTS STYLE */
+
+input {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+}
+
+label {
+    cursor: pointer;
+    display: flex;
+    margin: 0 1.5rem;
+	height: 2rem;
+	width: 2rem;
+    border-radius: 50%;
+    transition: all .4s ease;
+}
+
+label:after {
+	border: 2px solid #800;
+	content: " ";
+	display: flex;
+	width: 2rem;
+    border-radius: 50%;
+}
+
+.wrapper label:hover {
+    opacity: .3;
+    background: #ff2222;
+    transform: scale(1.2);
+} 
+#slide-dot-1:checked ~ .dots label:nth-of-type(1),
+#slide-dot-2:checked ~ .dots label:nth-of-type(2),
+#slide-dot-3:checked ~ .dots label:nth-of-type(3),
+#slide-dot-4:checked ~ .dots label:nth-of-type(4),
+#slide-dot-5:checked ~ .dots label:nth-of-type(5) {
+	background: #790604;
+}
+
+/* SLIDER  FOR SLIDES*/
+
+#slide-dot-1:checked ~ .slides > .slide__1 {
+    margin-left: 0;
+}
+
+#slide-dot-2:checked ~ .slides > .slide__2 {
+    margin-left: -20%;
+}
+
+#slide-dot-3:checked ~ .slides > .slide__3 {
+    margin-left: -40%;
+}
+
+#slide-dot-4:checked ~ .slides > .slide__4 {
+    margin-left: -60%;
+}
+
+#slide-dot-5:checked ~ .slides > .slide__5 {
+    margin-left: -80%;
+
+}
+
+/* SLIDER  FOR TEXT*/
+
+#slide-dot-1:checked ~ .text > .commentary__1 {
+    display: block;
+    animation: comm .4s ease forwards;
+
+}
+
+#slide-dot-2:checked ~ .text > .commentary__2 {
+    display: block;
+    animation: comm .4s ease forwards;
+
+}
+
+#slide-dot-3:checked ~ .text > .commentary__3 {
+    display: block;
+    animation: comm .4s ease forwards;
+
+}
+
+#slide-dot-4:checked ~ .text > .commentary__4 {
+    display: block;
+    animation: comm .4s ease forwards;
+}
+
+#slide-dot-5:checked ~ .text > .commentary__5 {
+    display: block;
+    animation: comm .4s ease forwards;
+}
